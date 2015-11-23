@@ -6,18 +6,15 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
-import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.BitmapFactory.Options;
 
 public class ImageHelper {
-	public static File getSmallImageFile(Context context, String filePath,
-			int width, int height, boolean allowAdjust) {
-		File file = new File(context.getCacheDir().getAbsolutePath());
-		Options opt = new Options();
-		Bitmap bitmap = BitmapFactory.decode;
-	}
+//	public static File getSmallImageFile(Context context, String filePath,
+//			int width, int height, boolean allowAdjust) {
+//		File file = new File(context.getCacheDir().getAbsolutePath());
+//		Options opt = new Options();
+//		Bitmap bitmap = BitmapFactory.decode;
+//	}
 
 	/**
 	 * 获取一个随机的图片文件名称，格式为jpeg
@@ -40,11 +37,11 @@ public class ImageHelper {
 		return path;
 	}
 
-	public static Bitmap reduce(String bitmap, int width, int height,
-			boolean allowAdjust) {
-		Options opts = new Options();
-		opts.inJustDecodeBounds = true;
-	}
+//	public static Bitmap reduce(String bitmap, int width, int height,
+//			boolean allowAdjust) {
+//		Options opts = new Options();
+//		opts.inJustDecodeBounds = true;
+//	}
 
 	public static int computeSampleSize(BitmapFactory.Options options,
 			int minSideLength, int maxNumOfPixels) {
