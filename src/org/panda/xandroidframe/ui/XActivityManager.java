@@ -13,7 +13,7 @@ import android.app.Activity;
  */
 public class XActivityManager {
 	/** 记录管理器内所有Activity */
-	private static Stack<IActivityDescribable> aties;
+	private Stack<IActivityDescribable> aties;
 	/** 管理器实例 */
 	private static XActivityManager manager;
 
@@ -31,7 +31,7 @@ public class XActivityManager {
 	 * 
 	 * @return
 	 */
-	public static XActivityManager create() {
+	public static XActivityManager getManager() {
 		if (null == manager) {
 			synchronized (XActivityManager.class) {
 				if (null == manager) {
@@ -47,7 +47,7 @@ public class XActivityManager {
 	 * 
 	 * @return
 	 */
-	public static int getCount() {
+	public int getCount() {
 		return aties.size();
 	}
 
@@ -56,7 +56,7 @@ public class XActivityManager {
 	 * 
 	 * @param aty
 	 */
-	public static void addActivity(IActivityDescribable aty) {
+	public void addActivity(IActivityDescribable aty) {
 		aties.add(aty);
 	}
 
@@ -65,7 +65,7 @@ public class XActivityManager {
 	 * 
 	 * @return
 	 */
-	public static Activity topActivity() {
+	public Activity topActivity() {
 		if (getCount() == 0) {
 			return null;
 		}
@@ -78,7 +78,7 @@ public class XActivityManager {
 	 * @param clazz
 	 * @return
 	 */
-	public static Activity findActivity(Class<?> clazz) {
+	public Activity findActivity(Class<?> clazz) {
 		IActivityDescribable aty = null;
 		for (IActivityDescribable activity : aties) {
 			if (activity.getClass().equals(clazz)) {
@@ -92,7 +92,7 @@ public class XActivityManager {
 	/**
 	 * 结束栈顶Activity
 	 */
-	public static void finishActivity() {
+	public void finishActivity() {
 		Activity aty = topActivity();
 		if (aty != null) {
 			finishActivity(aty);
@@ -104,7 +104,7 @@ public class XActivityManager {
 	 * 
 	 * @param clazz
 	 */
-	public static void finishActivity(Class<?> clazz) {
+	public void finishActivity(Class<?> clazz) {
 		Activity aty = findActivity(clazz);
 		if (aty != null) {
 			aties.remove(aty);
@@ -116,7 +116,7 @@ public class XActivityManager {
 	 * 
 	 * @param clazz
 	 */
-	public static void finishOtherActivity(Class<?> clazz) {
+	public void finishOtherActivity(Class<?> clazz) {
 		for (IActivityDescribable aty : aties) {
 			if (aty.getClass().equals(clazz)) {
 				finishActivity((Activity) aty);
@@ -127,7 +127,7 @@ public class XActivityManager {
 	/**
 	 * 结束所有activity
 	 */
-	public static void finishAllActivity() {
+	public void finishAllActivity() {
 		for (IActivityDescribable aty : aties) {
 			finishActivity((Activity) aty);
 		}
@@ -136,7 +136,7 @@ public class XActivityManager {
 	/**
 	 * App退出
 	 */
-	public static void appExit() {
+	public void appExit() {
 		try {
 			finishActivity();
 			Runtime.getRuntime().exit(0);
@@ -152,7 +152,7 @@ public class XActivityManager {
 	 * 
 	 * @param activity
 	 */
-	public static void finishActivity(Activity activity) {
+	public void finishActivity(Activity activity) {
 		if (activity != null) {
 			aties.remove(activity);
 			activity = null;
