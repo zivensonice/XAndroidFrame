@@ -1,3 +1,4 @@
+package org.panda.xandroidframe;
 import java.lang.ref.SoftReference;
 
 import org.panda.xandroidframe.ui.AnnotateUtil;
