@@ -29,7 +29,7 @@ import android.text.TextUtils;
  * @date: 2015-11-21 下午12:46:37
  * 
  */
-public class FileHelper {
+public class FileUtil {
 	/**
 	 * @return 检测SD卡是否可用
 	 */
@@ -66,7 +66,7 @@ public class FileHelper {
 				}
 				ops.flush();
 			} catch (Exception e) {
-				throw new RuntimeException(FileHelper.class.getClass()
+				throw new RuntimeException(FileUtil.class.getClass()
 						.getName(), e);
 			} finally {
 				closeIO(bIps, ops);
@@ -308,9 +308,26 @@ public class FileHelper {
 			try {
 				closeable.close();
 			} catch (IOException e) {
-				L.e("%s,closeIO方法关闭流异常。", FileHelper.class.getClass().getName());
+				L.e("%s,closeIO方法关闭流异常。", FileUtil.class.getClass().getName());
 				throw new RuntimeException(e);
 			}
 		}
+	}
+
+	/**
+	 * 是否是一个文件
+	 * 
+	 * @param filePath
+	 * @return
+	 */
+	public static boolean isFile(String filePath) {
+		if (TextUtils.isEmpty(filePath)) {
+			return false;
+		}
+		File file = new File(filePath);
+		if (file.exists() && file.isFile()) {
+			return true;
+		}
+		return false;
 	}
 }

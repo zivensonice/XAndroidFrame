@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 import android.text.TextUtils;
 
-public class StringUtils {
+public class StringUtil {
 	private final static Pattern emailer = Pattern
 			.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
 	private final static Pattern phone = Pattern

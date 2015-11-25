@@ -27,7 +27,7 @@ import android.util.TypedValue;
  * @date: 2015-11-25 下午1:59:41
  * 
  */
-public final class ScreenUtils {
+public final class ScreenUtil {
 
 	/**
 	 * 根据手机的分辨率从 dp 的单位 转成为 px(像素)

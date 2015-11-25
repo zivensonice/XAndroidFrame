@@ -15,7 +15,7 @@ import android.content.SharedPreferences.Editor;
  * @date: 2015-11-20 下午3:39:44
  * 
  */
-public class SPHelper {
+public class SPUtil {
 
 	/**
 	 * @param context

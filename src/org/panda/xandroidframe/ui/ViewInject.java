@@ -1,7 +1,7 @@
 package org.panda.xandroidframe.ui;
 
-import org.panda.xandroidframe.utils.ScreenUtils;
-import org.panda.xandroidframe.utils.SystemUtils;
+import org.panda.xandroidframe.utils.ScreenUtil;
+import org.panda.xandroidframe.utils.SystemUtil;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -97,8 +97,8 @@ public class ViewInject {
 	public ProgressDialog getProgressDialog(Context context, String content,
 			boolean cancle) {
 		ProgressDialog dialog = new ProgressDialog(context);
-		dialog.getWindow().setLayout(ScreenUtils.getScreenW(context),
-				ScreenUtils.getScreenH(context));
+		dialog.getWindow().setLayout(ScreenUtil.getScreenW(context),
+				ScreenUtil.getScreenH(context));
 		dialog.setMessage(content);
 		dialog.setCancelable(cancle);
 		dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -108,7 +108,7 @@ public class ViewInject {
 
 	public void getDateDialog(String title, final TextView textView) {
 		// DatePickerDialog dialog = new
-		String[] dateStr = SystemUtils.getDateTime("yyyy-MM-hh").split("-");
+		String[] dateStr = SystemUtil.getDateTime("yyyy-MM-hh").split("-");
 		int year = Integer.valueOf(dateStr[0]);
 		int month = Integer.valueOf(dateStr[1]);
 		int day = Integer.valueOf(dateStr[2]);

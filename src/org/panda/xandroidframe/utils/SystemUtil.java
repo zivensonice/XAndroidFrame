@@ -30,7 +30,7 @@ import android.view.inputmethod.InputMethodManager;
  * @date: 2015-11-25 下午4:45:59
  * 
  */
-public final class SystemUtils {
+public final class SystemUtil {
 	/**
 	 * 按照格式返回匹配时间
 	 * 
