@@ -38,7 +38,7 @@ public final class SystemUtils {
 	 *            匹配规则
 	 * @return
 	 */
-	public static String getDataTime(String pattern) {
+	public static String getDateTime(String pattern) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(pattern,
 				Locale.CHINA);
 		return dateFormat.format(new Date());
@@ -47,8 +47,8 @@ public final class SystemUtils {
 	/**
 	 * 按照HH:mm的格式返回时间
 	 */
-	public static String getDataTime() {
-		return getDataTime("HH:mm");
+	public static String getDateTime() {
+		return getDateTime("HH:mm");
 	}
 
 	/**
